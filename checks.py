@@ -19,6 +19,10 @@ def check_disk_usage(disk, min_gb, min_percent):
 		return True
 	return False
 
+def cpu_constraint():
+	"""Returns True if CPU is having too much usage, False otherwise"""
+	return psutil.cpu_percent(1) > 75
+
 def chek_root_full():
 	"""Returns True if root partition is full, False otherwise"""
 	return check_disk_usage(disk='/', min_gb=2, min_percent=10)
