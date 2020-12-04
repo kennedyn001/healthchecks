@@ -2,6 +2,7 @@
 import os
 import sys
 import shutil
+import psutil
 import socket
 
 
@@ -41,7 +42,8 @@ def chek_root_full():
 def main():
 	checks=[
 		(check_reboot, "Pending reboot"),
-		(chek_root_full, "Root partition full")
+		(chek_root_full, "Root partition full"),
+		(cpu_constraint, "CPU usage too high"),
 		(check_no_network,"No working network")
 	]
 	everything_ok=True
